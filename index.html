@@ -4,127 +4,135 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>♡ تولد اناهیتا قشنگم ♡</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
+    /* ====== ریست ====== */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Tahoma, sans-serif; }
+
     body {
-      background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 50%, #ffd9e6 100%) !important;
+      background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 50%, #ffd9e6 100%);
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    .app {
-      background: linear-gradient(135deg, #fff8fa 0%, #fff0f5 100%) !important;
+    /* ====== پس‌زمینه‌های تزئینی ====== */
+    .medical {
+      position: fixed;
+      font-size: 1.5rem;
+      color: rgba(255,107,138,0.15);
+      pointer-events: none;
+      z-index: 1;
     }
+    .m1 { top: 20px; left: 20px; }
+    .m2 { top: 20px; right: 20px; }
+    .m3 { bottom: 20px; left: 20px; }
+    .m4 { bottom: 20px; right: 20px; }
 
+    /* ====== پاکت ====== */
     .screen {
-      background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 50%, #ffd9e6 100%) !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    .cake-main {
-      max-width: 200px !important;
-      width: 100% !important;
-      height: auto !important;
-      border-radius: 20px !important;
-      box-shadow: 0 8px 30px rgba(255,107,138,0.25) !important;
-      cursor: pointer !important;
-      transition: transform 0.3s ease !important;
-      display: block !important;
-      margin: 0 auto !important;
+    .envelope-wrap {
+      cursor: pointer;
+      text-align: center;
+      padding: 30px;
+      transition: transform 0.3s;
+    }
+    .envelope-wrap:hover { transform: scale(1.05); }
+
+    .letter-preview { margin-bottom: 25px; }
+    .hand {
+      font-size: 1.3rem;
+      color: #ff6b8a;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .tiny { font-size: 0.9rem; color: #888; }
+
+    .env {
+      position: relative;
+      width: 240px;
+      height: 160px;
+      margin: 0 auto;
+      background: #ff8fab;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(255,107,138,0.4);
+    }
+    .env-flap {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 80px;
+      background: #ff7a9e;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      border-radius: 10px 10px 0 0;
+    }
+    .env-pocket {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 80px;
+      background: #ff6b8a;
+      border-radius: 0 0 10px 10px;
+    }
+    .seal {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.2rem;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
-    .cake-main:hover { transform: scale(1.05) !important; }
-
-    .cake-stage {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 15px !important;
-      padding: 20px !important;
+    .tap {
+      margin-top: 30px;
+      color: #b08898;
+      font-size: 1rem;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
 
-    .gift-cake {
-      max-width: 100px !important;
-      width: 100% !important;
-      height: auto !important;
-      border-radius: 14px !important;
-      object-fit: cover !important;
+    /* ====== اپلیکیشن اصلی ====== */
+    .app {
+      max-width: 600px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff8fa 0%, #fff0f5 100%);
+      box-shadow: 0 0 60px rgba(255,107,138,0.15);
     }
 
-    .note-cake {
-      font-size: 0.95rem !important;
-      color: #555 !important;
-      text-align: center !important;
-      margin: 8px 0 !important;
-      background: rgba(255,255,255,0.8) !important;
-      padding: 8px 16px !important;
-      border-radius: 30px !important;
-      display: inline-block !important;
+    .hidden { display: none !important; }
+
+    header {
+      background: rgba(255,255,255,0.95);
+      padding: 15px 20px;
+      box-shadow: 0 2px 15px rgba(255,107,138,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+    header b { color: #ff6b8a; font-size: 1.2rem; }
+    header span { color: #b08898; font-size: 0.8rem; }
 
-    .cake-hit {
-      background: #ff6b8a !important;
-      color: white !important;
-      border: none !important;
-      padding: 12px 28px !important;
-      border-radius: 50px !important;
-      font-size: 1.1rem !important;
-      cursor: pointer !important;
-      transition: all 0.3s ease !important;
-      margin: 5px 0 !important;
+    /* ====== صفحات ====== */
+    .stage { position: relative; }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease;
+      padding: 25px 20px;
+      min-height: calc(100vh - 130px);
     }
-
-    .cake-hit:hover { transform: scale(1.05) !important; background: #ff5277 !important; }
-
-    .text-back {
-      background: transparent !important;
-      border: 2px solid #ff6b8a !important;
-      color: #ff6b8a !important;
-      padding: 10px 24px !important;
-      border-radius: 50px !important;
-      font-size: 0.9rem !important;
-      cursor: pointer !important;
-      transition: all 0.3s ease !important;
-      margin-top: 10px !important;
-    }
-
-    .text-back:hover { background: #ff6b8a !important; color: white !important; }
-
-    .gift-grid {
-      display: flex !important;
-      gap: 20px !important;
-      justify-content: center !important;
-      flex-wrap: wrap !important;
-      margin: 20px 0 !important;
-    }
-
-    .gift {
-      background: white !important;
-      border: none !important;
-      border-radius: 20px !important;
-      padding: 20px 25px !important;
-      box-shadow: 0 4px 20px rgba(255,107,138,0.15) !important;
-      cursor: pointer !important;
-      transition: all 0.3s ease !important;
-      text-align: center !important;
-      min-width: 130px !important;
-    }
-
-    .gift:hover { transform: translateY(-5px) !important; box-shadow: 0 8px 30px rgba(255,107,138,0.3) !important; }
-
-    .gift-art {
-      font-size: 2.5rem !important;
-      margin-bottom: 10px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-    }
-
-    .gift b { display: block !important; color: #333 !important; font-size: 0.9rem !important; margin: 5px 0 !important; }
-    .gift small { display: block !important; color: #888 !important; font-size: 0.75rem !important; }
-    .envelope-art span { font-size: 3rem !important; }
-
-    .page { display: none !important; animation: fadeIn 0.5s ease !important; padding: 20px !important; }
-    .page.active { display: block !important; }
+    .page.active { display: block; }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -132,150 +140,403 @@
     }
 
     .script {
-      font-size: 1.8rem !important;
-      font-weight: bold !important;
-      color: #ff6b8a !important;
-      text-align: center !important;
-      margin-bottom: 15px !important;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff6b8a;
+      text-align: center;
+      margin-bottom: 10px;
+      font-family: 'Georgia', serif;
     }
 
-    .subtitle { text-align: center !important; color: #666 !important; font-size: 1rem !important; margin-bottom: 20px !important; }
-    .hint { text-align: center !important; color: #999 !important; font-size: 0.9rem !important; margin-top: 20px !important; }
-    .flower-layout { text-align: center !important; margin: 20px 0 !important; }
-    .flower-main { max-width: 250px !important; width: 100% !important; height: auto !important; border-radius: 20px !important; }
-    .note { text-align: center !important; font-size: 1.1rem !important; color: #555 !important; margin: 20px 0 !important; line-height: 1.8 !important; }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
 
+    .hint {
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 25px;
+    }
+
+    /* ====== کارت‌های هدیه ====== */
+    .gift-grid {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
+
+    .gift {
+      background: white;
+      border: none;
+      border-radius: 20px;
+      padding: 20px 18px;
+      box-shadow: 0 4px 20px rgba(255,107,138,0.15);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      min-width: 130px;
+      max-width: 160px;
+      flex: 1;
+    }
+    .gift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 35px rgba(255,107,138,0.35);
+    }
+
+    .gift-art {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
+    }
+    .gift-art img {
+      max-width: 90px;
+      max-height: 90px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .envelope-art span { font-size: 3.5rem; }
+
+    .gift b {
+      display: block;
+      color: #333;
+      font-size: 0.9rem;
+      margin: 5px 0;
+      letter-spacing: 1px;
+    }
+    .gift small {
+      display: block;
+      color: #888;
+      font-size: 0.75rem;
+    }
+
+    /* ====== صفحه گل ====== */
+    .flower-layout { text-align: center; margin: 25px 0; }
+    .flower-main {
+      max-width: 260px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(255,107,138,0.2);
+    }
+    .note {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+      margin: 25px 0;
+      line-height: 1.9;
+    }
+
+    /* ====== صفحه کیک ====== */
+    .cake-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+    }
+    .cake-main {
+      max-width: 220px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(255,107,138,0.3);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .cake-main:hover { transform: scale(1.05); }
+
+    .note-cake {
+      font-size: 1rem;
+      color: #555;
+      text-align: center;
+      margin: 15px 0;
+      background: rgba(255,255,255,0.9);
+      padding: 10px 18px;
+      border-radius: 30px;
+      display: inline-block;
+    }
+
+    .cake-hit {
+      background: #ff6b8a;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 5px;
+      box-shadow: 0 4px 15px rgba(255,107,138,0.3);
+    }
+    .cake-hit:hover {
+      transform: scale(1.05);
+      background: #ff5277;
+    }
+
+    /* ====== دکمه‌های برگشت ====== */
+    .text-back {
+      background: transparent;
+      border: 2px solid #ff6b8a;
+      color: #ff6b8a;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      letter-spacing: 1px;
+    }
+    .text-back:hover {
+      background: #ff6b8a;
+      color: white;
+    }
+
+    /* ====== صفحه کولاژ ====== */
     .memory-board {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 20px !important;
-      align-items: center !important;
-      max-width: 500px !important;
-      margin: 0 auto !important;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .polaroid {
-      background: white !important;
-      padding: 12px 12px 20px !important;
-      border-radius: 10px !important;
-      box-shadow: 0 4px 15px rgba(255,107,138,0.15) !important;
-      text-align: center !important;
-      width: 100% !important;
-      max-width: 280px !important;
+      background: white;
+      padding: 12px 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(255,107,138,0.18);
+      text-align: center;
+      width: 100%;
+      max-width: 300px;
+    }
+    .polaroid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+    .polaroid span {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #555;
+      font-family: 'Georgia', serif;
     }
 
-    .polaroid img { width: 100% !important; height: auto !important; border-radius: 8px !important; }
-    .polaroid span { display: block !important; margin-top: 8px !important; font-size: 0.85rem !important; color: #555 !important; }
-
-    .center-photo { width: 100% !important; max-width: 280px !important; }
-    .center-photo img { width: 100% !important; height: auto !important; border-radius: 16px !important; box-shadow: 0 4px 20px rgba(255,107,138,0.15) !important; }
+    .center-photo {
+      width: 100%;
+      max-width: 300px;
+    }
+    .center-photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(255,107,138,0.25);
+      display: block;
+    }
 
     .paper-note {
-      background: #fff9f0 !important;
-      padding: 25px !important;
-      border-radius: 16px !important;
-      text-align: center !important;
-      width: 100% !important;
-      max-width: 400px !important;
-      border: 1px solid #f0e0d0 !important;
+      background: #fff9f0;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      width: 100%;
+      max-width: 420px;
+      border: 1px solid #f0e0d0;
+      box-shadow: 0 6px 20px rgba(255,107,138,0.1);
+    }
+    .paper-note h3 {
+      color: #ff6b8a;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-family: 'Georgia', serif;
+    }
+    .paper-note p {
+      color: #555;
+      line-height: 1.9;
+      font-size: 0.95rem;
+    }
+    .paper-note b {
+      color: #ff6b8a;
+      display: block;
+      margin-top: 15px;
     }
 
-    .paper-note h3 { color: #ff6b8a !important; font-size: 1.1rem !important; margin-bottom: 15px !important; }
-    .paper-note p { color: #555 !important; line-height: 1.8 !important; font-size: 0.95rem !important; }
-    .paper-note b { color: #ff6b8a !important; display: block !important; margin-top: 15px !important; }
-    .sticker { font-size: 3rem !important; }
-    .final-inner { max-width: 550px !important; margin: 0 auto !important; }
-    .mini-decor { text-align: center !important; font-size: 1.5rem !important; margin-bottom: 15px !important; }
+    .sticker { font-size: 3rem; text-align: center; }
 
-    .photo-strip { display: flex !important; gap: 10px !important; justify-content: center !important; margin-bottom: 20px !important; }
-    .photo-strip img { width: 120px !important; height: 120px !important; object-fit: cover !important; border-radius: 16px !important; box-shadow: 0 4px 15px rgba(255,107,138,0.15) !important; }
+    /* ====== صفحه نهایی ====== */
+    .final-inner {
+      max-width: 550px;
+      margin: 0 auto;
+    }
 
-    .message { background: white !important; padding: 25px !important; border-radius: 20px !important; box-shadow: 0 4px 20px rgba(255,107,138,0.1) !important; }
-    .message h1 { color: #ff6b8a !important; font-size: 1.4rem !important; text-align: center !important; margin-bottom: 15px !important; }
-    .message p { color: #444 !important; line-height: 2 !important; font-size: 0.95rem !important; margin-bottom: 12px !important; }
-    .signature { text-align: center !important; color: #ff6b8a !important; font-size: 1.1rem !important; margin-top: 20px !important; font-weight: bold !important; }
+    .mini-decor {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      letter-spacing: 5px;
+    }
 
-    .pager { display: flex !important; justify-content: center !important; align-items: center !important; gap: 15px !important; margin-top: 30px !important; padding: 15px !important; }
-    .pager button { background: #ff6b8a !important; color: white !important; border: none !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; font-size: 1.2rem !important; cursor: pointer !important; transition: all 0.3s ease !important; }
-    .pager button:hover { transform: scale(1.1) !important; }
-    #dots { display: flex !important; gap: 8px !important; }
-    .dot { width: 10px !important; height: 10px !important; border-radius: 50% !important; background: #f0c0d0 !important; transition: all 0.3s ease !important; }
-    .dot.active, .dot.on { background: #ff6b8a !important; transform: scale(1.3) !important; }
+    .photo-strip {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+    .photo-strip img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(255,107,138,0.2);
+      border: 3px solid white;
+    }
 
-    .screen { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; min-height: 100vh !important; }
-    #envelope { min-height: 100vh !important; }
-    .envelope-wrap { cursor: pointer !important; text-align: center !important; padding: 30px !important; }
-    .letter-preview { margin-bottom: 20px !important; }
-    .hand { font-size: 1.2rem !important; color: #ff6b8a !important; font-weight: bold !important; }
-    .tiny { font-size: 0.85rem !important; color: #888 !important; }
+    .message {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(255,107,138,0.12);
+    }
+    .message h1 {
+      color: #ff6b8a;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Georgia', serif;
+    }
+    .message p {
+      color: #444;
+      line-height: 2;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+    .signature {
+      text-align: center;
+      color: #ff6b8a;
+      font-size: 1.15rem;
+      margin-top: 25px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
 
-    .env { position: relative !important; width: 220px !important; height: 140px !important; margin: 0 auto !important; background: #ff8fab !important; border-radius: 8px !important; box-shadow: 0 8px 30px rgba(255,107,138,0.35) !important; }
-    .env-flap { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 70px !important; background: #ff7a9e !important; clip-path: polygon(0 0, 50% 100%, 100% 0) !important; border-radius: 8px 8px 0 0 !important; }
-    .env-pocket { position: absolute !important; bottom: 0 !important; left: 0 !important; width: 100% !important; height: 70px !important; background: #ff6b8a !important; border-radius: 0 0 8px 8px !important; }
-    .seal { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; font-size: 2rem !important; color: white !important; z-index: 10 !important; text-shadow: 0 2px 10px rgba(0,0,0,0.2) !important; }
+    /* ====== نوار پایین ====== */
+    .pager {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 30px;
+      padding: 20px;
+    }
+    .pager button {
+      background: #ff6b8a;
+      color: white;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255,107,138,0.3);
+    }
+    .pager button:hover {
+      transform: scale(1.1);
+      background: #ff5277;
+    }
+    .pager button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
 
-    .tap { margin-top: 30px !important; color: #b08898 !important; font-size: 0.9rem !important; animation: pulse 1.5s infinite !important; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    #dots {
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f0c0d0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .dot.on {
+      background: #ff6b8a;
+      transform: scale(1.4);
+    }
 
-    .hidden { display: none !important; }
-
-    header { background: rgba(255,255,255,0.95) !important; padding: 15px 20px !important; box-shadow: 0 2px 15px rgba(255,107,138,0.1) !important; display: flex !important; justify-content: space-between !important; align-items: center !important; position: relative !important; }
-    header b { color: #ff6b8a !important; font-size: 1.2rem !important; }
-    header span { color: #b08898 !important; font-size: 0.8rem !important; }
-
-    .app { max-width: 600px !important; margin: 0 auto !important; min-height: 100vh !important; }
-
-    .medical { position: fixed !important; font-size: 1.5rem !important; color: rgba(255,107,138,0.12) !important; pointer-events: none !important; z-index: 9999 !important; }
-    .m1 { top: 20px; left: 20px; }
-    .m2 { top: 20px; right: 20px; }
-    .m3 { bottom: 20px; left: 20px; }
-    .m4 { bottom: 20px; right: 20px; }
-
+    /* ====== دکمه موسیقی ====== */
     #musicToggle {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background: rgba(255,107,138,0.15);
+      background: rgba(255,255,255,0.95);
       border: 2px solid #ff6b8a;
       border-radius: 50%;
       width: 50px;
       height: 50px;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       cursor: pointer;
       z-index: 99999;
-      backdrop-filter: blur(10px);
       color: #ff6b8a;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255,107,138,0.2);
+      box-shadow: 0 4px 15px rgba(255,107,138,0.3);
+    }
+    #musicToggle:hover {
+      transform: scale(1.1);
+      background: #ff6b8a;
+      color: white;
     }
 
-    #musicToggle:hover { transform: scale(1.1); background: rgba(255,107,138,0.25); }
-
+    /* ====== موبایل ====== */
     @media (max-width: 480px) {
-      .gift-grid { gap: 10px !important; }
-      .gift { padding: 15px !important; min-width: 100px !important; }
-      .cake-main { max-width: 160px !important; }
-      .photo-strip img { width: 80px !important; height: 80px !important; }
-      .message h1 { font-size: 1.1rem !important; }
-      .paper-note { padding: 18px !important; }
-      #musicToggle { width: 40px; height: 40px; font-size: 1.2rem; bottom: 15px; right: 15px; }
+      .script { font-size: 1.6rem; }
+      .gift-grid { gap: 10px; }
+      .gift { padding: 15px 10px; min-width: 100px; }
+      .gift-art img { max-width: 70px; max-height: 70px; }
+      .envelope-art span { font-size: 2.8rem; }
+      .cake-main { max-width: 180px; }
+      .photo-strip img { width: 90px; height: 90px; }
+      .message h1 { font-size: 1.15rem; }
+      .message { padding: 20px; }
+      .paper-note { padding: 18px; }
+      #musicToggle {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+        bottom: 15px;
+        right: 15px;
+      }
+      .env { width: 200px; height: 135px; }
     }
   </style>
 </head>
 
 <body>
+  <!-- ====== موسیقی ====== -->
   <audio id="bgMusic" loop autoplay>
     <source src="assets/music.mp3" type="audio/mpeg">
-    مرورگرت از پخش موسیقی پشتیبانی نمی‌کنه 😢
   </audio>
 
   <button id="musicToggle" aria-label="کنترل موسیقی">🔊</button>
 
-  <div class="medical m1">✚</div>
-  <div class="medical m2">🩺</div>
-  <div class="medical m3">💊</div>
-  <div class="medical m4">✚</div>
+  <!-- ====== تزئینات ====== -->
+  <div class="medical m1">⚽</div>
+  <div class="medical m2">🏃‍♀️</div>
+  <div class="medical m3">🏅</div>
+  <div class="medical m4">🎽</div>
 
+  <!-- ====== 0: پاکت ====== -->
   <section id="envelope" class="screen">
     <div class="envelope-wrap" id="envelopeBtn" role="button" tabindex="0">
       <div class="letter-preview">
@@ -293,6 +554,7 @@
     <div class="tap">روی پاکت بزن ✨</div>
   </section>
 
+  <!-- ====== صفحات اصلی ====== -->
   <main id="app" class="app hidden">
     <header>
       <b>ANAHITA ♡</b>
@@ -301,8 +563,9 @@
 
     <div class="stage">
 
+      <!-- Page 0 -->
       <section class="page active" data-i="0">
-        <div class="script hero">choose your gift</div>
+        <div class="script">choose your gift</div>
         <div class="subtitle">برای اناهیتا قشنگم ♡</div>
 
         <div class="gift-grid">
@@ -313,13 +576,17 @@
           </button>
 
           <button class="gift" data-go="1">
-            <div class="gift-art"><img src="assets/flowers-exact.png" class="gift-cake" alt="گل"></div>
-            <small>گل‌های قشنگ برای تو</small>
+            <div class="gift-art">
+              <img src="assets/flowers-exact.png" alt="گل">
+            </div>
             <b>FLOWER</b>
+            <small>گل‌های قشنگ برای تو</small>
           </button>
 
           <button class="gift" data-go="2">
-            <div class="gift-art"><img src="assets/cake.jpg" class="gift-cake" alt="کیک تولد"></div>
+            <div class="gift-art">
+              <img src="assets/cake.jpg" alt="کیک تولد">
+            </div>
             <b>CAKE</b>
             <small>یک سورپرایز کوچولو</small>
           </button>
@@ -328,8 +595,9 @@
         <p class="hint">یکی از هدیه‌ها رو انتخاب کن ✨</p>
       </section>
 
+      <!-- Page 1 - گل -->
       <section class="page" data-i="1">
-        <div class="script heading">flower for you!</div>
+        <div class="script">flower for you!</div>
         <div class="flower-layout">
           <img src="assets/flowers-exact.png" class="flower-main" alt="گل‌های تولد">
         </div>
@@ -341,35 +609,31 @@
         <button class="text-back" data-go="0">GO BACK</button>
       </section>
 
+      <!-- Page 2 - کیک -->
       <section class="page" data-i="2">
-        <div class="script heading">happy birthday!</div>
+        <div class="script">happy birthday!</div>
         <div class="cake-stage">
           <img src="assets/cake.jpg" class="cake-main" id="cakeBtn" alt="کیک تولد">
         </div>
-        <p class="note-cake">🎂 روی کیک بزن تا سورپرایزت رو ببینی ✨</p>
+        <div style="text-align:center;">
+          <p class="note-cake">🎂 روی کیک بزن تا سورپرایزت رو ببینی ✨</p>
+        </div>
         <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
           <button class="cake-hit" id="cakeHit">🍰 سورپرایز</button>
           <button class="text-back" data-go="0">GO BACK</button>
         </div>
       </section>
 
-      <section class="page collage" data-i="3">
-        <div class="script heading">happy birthday, Anahita ♡</div>
+      <!-- Page 3 - کولاژ -->
+      <section class="page" data-i="3">
+        <div class="script">happy birthday, Anahita ♡</div>
 
         <div class="memory-board">
-          <!-- ✅ پولاروید اول: عکس اناهیتا -->
-          <div class="polaroid one">
+          <div class="polaroid">
             <img src="assets/anahita.jpg" alt="اناهیتا">
             <span>happy birthday ♡</span>
           </div>
 
-          <!-- ✅ پولاروید دوم: عکس اناهیتا -->
-          <div class="polaroid two">
-            <img src="assets/anahita.jpg" alt="اناهیتا">
-            <span>my lovely friend ♡</span>
-          </div>
-
-          <!-- ✅ عکس وسط: عکس اناهیتا -->
           <div class="center-photo">
             <img src="assets/anahita.jpg" alt="اناهیتا">
           </div>
@@ -391,15 +655,16 @@
           <div class="sticker">🎉</div>
         </div>
 
-        <button class="text-back" data-go="4">LAST PAGE</button>
+        <div style="text-align:center;">
+          <button class="text-back" data-go="4">LAST PAGE</button>
+        </div>
       </section>
 
-      <section class="page final" data-i="4">
+      <!-- Page 4 - نهایی -->
+      <section class="page" data-i="4">
         <div class="final-inner">
-          <!-- ✅ آیکون‌های ورزشی -->
           <div class="mini-decor">⚽ 🏃‍♀️ 🏅 🥇 🎽</div>
 
-          <!-- ✅ استریپ عکس: هر دو عکس اناهیتا -->
           <div class="photo-strip">
             <img src="assets/anahita.jpg" alt="اناهیتا">
             <img src="assets/anahita.jpg" alt="اناهیتا">
@@ -436,11 +701,14 @@
           </article>
         </div>
 
-        <button class="text-back" data-go="0">GO BACK</button>
+        <div style="text-align:center;">
+          <button class="text-back" data-go="0">GO BACK</button>
+        </div>
       </section>
 
     </div>
 
+    <!-- نوار پایین -->
     <nav class="pager">
       <button id="prev" aria-label="صفحه قبل">‹</button>
       <div id="dots"></div>
@@ -448,6 +716,114 @@
     </nav>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    // ====== کنترل موسیقی ======
+    const music = document.getElementById('bgMusic');
+    const toggleBtn = document.getElementById('musicToggle');
+    let isMusicPlaying = true;
+
+    if (music) {
+      music.volume = 0.3;
+      music.play().catch(() => {});
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function() {
+        if (isMusicPlaying) {
+          music.pause();
+          this.textContent = '🔇';
+        } else {
+          music.play().catch(() => {});
+          this.textContent = '🔊';
+        }
+        isMusicPlaying = !isMusicPlaying;
+      });
+    }
+
+    // ====== متغیرها ======
+    const envelope = document.getElementById('envelopeBtn');
+    const envScreen = document.getElementById('envelope');
+    const app = document.getElementById('app');
+    const pages = [...document.querySelectorAll('.page')];
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+    const dots = document.getElementById('dots');
+    let i = 0;
+
+    // ====== باز کردن پاکت ======
+    function openEnvelope() {
+      envScreen.style.opacity = '0';
+      envScreen.style.transition = 'opacity 0.6s ease';
+      setTimeout(() => {
+        envScreen.classList.add('hidden');
+        app.classList.remove('hidden');
+        render();
+      }, 600);
+    }
+
+    envelope.onclick = openEnvelope;
+    envelope.onkeydown = e => {
+      if (e.key === 'Enter' || e.key === ' ') openEnvelope();
+    };
+
+    // ====== ساخت نقطه‌ها ======
+    pages.forEach((_, n) => {
+      const d = document.createElement('span');
+      d.className = 'dot';
+      d.onclick = () => go(n);
+      dots.appendChild(d);
+    });
+
+    // ====== رندر ======
+    function render() {
+      pages.forEach((p, n) => p.classList.toggle('active', n === i));
+      [...dots.children].forEach((d, n) => d.classList.toggle('on', n === i));
+      prev.disabled = i === 0;
+      next.disabled = i === pages.length - 1;
+    }
+
+    function go(n) {
+      i = Math.max(0, Math.min(pages.length - 1, n));
+      render();
+    }
+
+    next.onclick = () => go(i + 1);
+    prev.onclick = () => go(i - 1);
+
+    // ====== دکمه‌های data-go ======
+    document.querySelectorAll('[data-go]').forEach(b => {
+      b.onclick = () => go(Number(b.dataset.go));
+    });
+
+    // ====== سورپرایز کیک ======
+    function doSurprise() {
+      alert('🎉 تولدت مبارک اناهیتا قشنگم! 🎉\n\n⚽ امیدوارم زندگیت پر از گل و برد باشه!\n🏃‍♀️ و همیشه توی پیست زندگی اول بشی!\n\n❤️ همیشه شاد و سالم باشی!');
+      const cakeImg = document.getElementById('cakeBtn');
+      if (cakeImg) {
+        cakeImg.style.transform = 'scale(1.2)';
+        setTimeout(() => { cakeImg.style.transform = 'scale(1)'; }, 500);
+      }
+    }
+
+    document.getElementById('cakeHit').onclick = doSurprise;
+    document.getElementById('cakeBtn').onclick = doSurprise;
+
+    // ====== تاچ ======
+    let sx = 0;
+    app.addEventListener('touchstart', e => sx = e.changedTouches[0].screenX, { passive: true });
+    app.addEventListener('touchend', e => {
+      let dx = e.changedTouches[0].screenX - sx;
+      if (Math.abs(dx) > 45) dx < 0 ? go(i + 1) : go(i - 1);
+    }, { passive: true });
+
+    // ====== کیبورد ======
+    document.addEventListener('keydown', e => {
+      if (app.classList.contains('hidden')) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); go(i + 1); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(i - 1); }
+    });
+
+    render();
+  </script>
 </body>
 </html>
