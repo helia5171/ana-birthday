@@ -3,16 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>♡ تولد هانی جان ♡</title>
+  <title>♡ تولد اناهیتا قشنگم ♡</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* استایل‌های جدید برای کوچک‌تر کردن کیک */
+    /* پس‌زمینه صورتی کم‌رنگ ملایم */
+    body {
+      background: #fff0f5 !important;
+      background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 50%, #ffd9e6 100%) !important;
+      min-height: 100vh;
+    }
+
+    .app {
+      background: linear-gradient(135deg, #fff8fa 0%, #fff0f5 100%) !important;
+    }
+
+    .screen {
+      background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 50%, #ffd9e6 100%) !important;
+    }
+
     .cake-main {
       max-width: 200px !important;
       width: 100% !important;
       height: auto !important;
       border-radius: 20px !important;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15) !important;
+      box-shadow: 0 8px 30px rgba(255,107,138,0.25) !important;
       cursor: pointer !important;
       transition: transform 0.3s ease !important;
       display: block !important;
@@ -98,7 +112,7 @@
       border: none !important;
       border-radius: 20px !important;
       padding: 20px 25px !important;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+      box-shadow: 0 4px 20px rgba(255,107,138,0.15) !important;
       cursor: pointer !important;
       transition: all 0.3s ease !important;
       text-align: center !important;
@@ -107,7 +121,7 @@
 
     .gift:hover {
       transform: translateY(-5px) !important;
-      box-shadow: 0 8px 30px rgba(255,107,138,0.2) !important;
+      box-shadow: 0 8px 30px rgba(255,107,138,0.3) !important;
     }
 
     .gift-art {
@@ -205,7 +219,7 @@
       background: white !important;
       padding: 12px 12px 20px !important;
       border-radius: 10px !important;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+      box-shadow: 0 4px 15px rgba(255,107,138,0.15) !important;
       text-align: center !important;
       width: 100% !important;
       max-width: 280px !important;
@@ -233,7 +247,7 @@
       width: 100% !important;
       height: auto !important;
       border-radius: 16px !important;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+      box-shadow: 0 4px 20px rgba(255,107,138,0.15) !important;
     }
 
     .paper-note {
@@ -291,14 +305,14 @@
       height: 120px !important;
       object-fit: cover !important;
       border-radius: 16px !important;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+      box-shadow: 0 4px 15px rgba(255,107,138,0.15) !important;
     }
 
     .message {
       background: white !important;
       padding: 25px !important;
       border-radius: 20px !important;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+      box-shadow: 0 4px 20px rgba(255,107,138,0.1) !important;
     }
 
     .message h1 {
@@ -357,11 +371,11 @@
       width: 10px !important;
       height: 10px !important;
       border-radius: 50% !important;
-      background: #ddd !important;
+      background: #f0c0d0 !important;
       transition: all 0.3s ease !important;
     }
 
-    .dot.active {
+    .dot.active, .dot.on {
       background: #ff6b8a !important;
       transform: scale(1.3) !important;
     }
@@ -373,7 +387,6 @@
       align-items: center !important;
       justify-content: center !important;
       min-height: 100vh !important;
-      background: linear-gradient(135deg, #fff5f7 0%, #ffe8ed 100%) !important;
     }
 
     #envelope {
@@ -408,7 +421,7 @@
       margin: 0 auto !important;
       background: #ff8fab !important;
       border-radius: 8px !important;
-      box-shadow: 0 8px 30px rgba(255,107,138,0.3) !important;
+      box-shadow: 0 8px 30px rgba(255,107,138,0.35) !important;
     }
 
     .env-flap {
@@ -445,7 +458,7 @@
 
     .tap {
       margin-top: 30px !important;
-      color: #999 !important;
+      color: #b08898 !important;
       font-size: 0.9rem !important;
       animation: pulse 1.5s infinite !important;
     }
@@ -460,9 +473,9 @@
     }
 
     header {
-      background: white !important;
+      background: rgba(255,255,255,0.95) !important;
       padding: 15px 20px !important;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.05) !important;
+      box-shadow: 0 2px 15px rgba(255,107,138,0.1) !important;
       display: flex !important;
       justify-content: space-between !important;
       align-items: center !important;
@@ -475,21 +488,20 @@
     }
 
     header span {
-      color: #999 !important;
+      color: #b08898 !important;
       font-size: 0.8rem !important;
     }
 
     .app {
       max-width: 600px !important;
       margin: 0 auto !important;
-      background: #faf8f9 !important;
       min-height: 100vh !important;
     }
 
     .medical {
       position: fixed !important;
       font-size: 1.5rem !important;
-      color: rgba(255,107,138,0.15) !important;
+      color: rgba(255,107,138,0.12) !important;
       pointer-events: none !important;
       z-index: 9999 !important;
     }
@@ -542,7 +554,7 @@
 </head>
 
 <body>
-  <!-- ====== موسیقی پس‌زمینه برای کل صفحه ====== -->
+  <!-- ====== موسیقی پس‌زمینه ====== -->
   <audio id="bgMusic" loop autoplay>
     <source src="assets/music.mp3" type="audio/mpeg">
     مرورگرت از پخش موسیقی پشتیبانی نمی‌کنه 😢
@@ -560,7 +572,7 @@
   <section id="envelope" class="screen">
     <div class="envelope-wrap" id="envelopeBtn" role="button" tabindex="0">
       <div class="letter-preview">
-        <div class="hand">For Hani ♡</div>
+        <div class="hand">For Anahita ♡</div>
         <div class="tiny">یک سورپرایز کوچولو...</div>
       </div>
 
@@ -577,7 +589,7 @@
   <!-- Main pages -->
   <main id="app" class="app hidden">
     <header>
-      <b>HANI ♡</b>
+      <b>ANAHITA ♡</b>
       <span>birthday surprise</span>
     </header>
 
@@ -588,7 +600,7 @@
         <div class="script hero">choose your gift</div>
 
         <div class="subtitle">
-          برای خاله هانی دوست‌داشتنی من ♡
+          برای اناهیتا قشنگم ♡
         </div>
 
         <div class="gift-grid">
@@ -631,7 +643,7 @@
         </div>
 
         <div class="note">
-          هانی جان، امیدوارم هر روزت
+          اناهیتا قشنگم، امیدوارم هر روزت
           <br>
           به قشنگی همین گل‌ها باشه ♡
         </div>
@@ -662,7 +674,7 @@
 
       <!-- Page 3 -->
       <section class="page collage" data-i="3">
-        <div class="script heading">happy birthday, Hani ♡</div>
+        <div class="script heading">happy birthday, Anahita ♡</div>
 
         <div class="memory-board">
 
@@ -673,7 +685,7 @@
 
           <div class="polaroid two">
             <img src="assets/hani-cafe.jpg" alt="خاطره کافه">
-            <span>my lovely aunt</span>
+            <span>my lovely friend</span>
           </div>
 
           <div class="center-photo">
@@ -688,7 +700,7 @@
             </h3>
 
             <p>
-              برای هانی عزیزم،
+              برای اناهیتا قشنگم،
               آرزو می‌کنم فصل جدید زندگی‌ات پر از آرامش،
               سلامتی، خنده‌های واقعی و اتفاق‌های قشنگ باشد.
             </p>
@@ -706,17 +718,18 @@
       <section class="page final" data-i="4">
         <div class="final-inner">
 
-          <div class="mini-decor">🩺 💊 🩹 📱 ✚</div>
+          <!-- ✅ تغییر مورد ۱: آیکون‌های ورزشی -->
+          <div class="mini-decor">⚽ 🏃‍♀️ 🏅 🥇 🎽</div>
 
           <div class="photo-strip">
-            <img src="assets/hani-balloons.jpg" alt="هانی">
-            <img src="assets/hani-cafe.jpg" alt="هانی">
+            <img src="assets/hani-balloons.jpg" alt="اناهیتا">
+            <img src="assets/hani-cafe.jpg" alt="اناهیتا">
           </div>
 
           <article class="message">
-            <h1>Happy birthday, my dear Hani ♡</h1>
+            <h1>Happy birthday, my dear Anahita ♡</h1>
 
-            <p>خاله هانی عزیزم،</p>
+            <p>اناهیتا قشنگم،</p>
 
             <p>
               امروز روزیه که باید بیشتر از همیشه بهت بگم
@@ -726,8 +739,8 @@
             </p>
 
             <p>
-              تو به عنوان یک پزشک، هر روز به آدم‌ها امید و آرامش می‌دی؛
-              امروز اما نوبت خودته که تمام خوبی‌ها و آرامشی
+              تو یه دوست فوق‌العاده‌ای؛
+              امروز نوبت خودته که تمام خوبی‌ها و آرامشی
               که به دیگران دادی، چند برابر به خودت برگرده.
             </p>
 
@@ -738,14 +751,14 @@
             </p>
 
             <p>
-              تولدت مبارک خاله جان.
+              تولدت مبارک اناهیتا قشنگم.
               همیشه همین‌قدر دوست‌داشتنی، قوی، مهربون و درخشان بمون. ❤️
             </p>
 
             <div class="signature">
               با کلی عشق،
               <br>
-              برای هانی ♡
+              برای اناهیتا قشنگم ♡
             </div>
           </article>
 
